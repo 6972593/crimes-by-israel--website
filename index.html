@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crimes by Israel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%; /* Ensure the html and body take full viewport height */
+            margin: 0;
+            padding: 0;
+            background-color: #323639; /* dark gray */
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #181a1b; /* very dark gray (near-black) */
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            height: 104px
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2em;
+        }
+        .header a {
+            font-size: 1em;
+            color: #9973f7; /* Obsidian lavender */
+            text-decoration: none;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .pdf-container {
+            height: calc(100% - 104px); /* subtract header height */
+            width: 100%;
+            overflow: auto;
+        }
+        iframe {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Crimes by Israel</h1>
+        <a href="crimes-by-israel-30-dec-2023.pdf" download="crimes-by-israel-30-dec-2023.pdf">Download</a>
+    </div>
+    <div class="pdf-container">
+        <iframe src="crimes-by-israel-30-dec-2023.pdf" id="pdfIframe"></iframe>
+    </div>
+    <script>
+        function adjustIframeHeight() {
+            var headerHeight = document.querySelector('.header').offsetHeight;
+            var viewportHeight = window.innerHeight;
+            var iframeHeight = viewportHeight - headerHeight;
+            document.getElementById('pdfIframe').style.height = iframeHeight + 'px';
+        }
+
+        window.onload = adjustIframeHeight;
+        window.onresize = adjustIframeHeight;
+    </script>
+</body>
+
+</html>
