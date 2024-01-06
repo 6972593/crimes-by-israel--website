@@ -8,20 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         html, body {
-            height: 100%; /* Ensure the html and body take full viewport height */
+            height: 100%; /* ensure the html and body take full viewport height */
             margin: 0;
             padding: 0;
             background-color: #323639; /* dark gray */
             font-family: 'Roboto', sans-serif;
             color: white;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         .header {
             background-color: #181a1b; /* very dark gray (near-black) */
             padding: 20px;
             text-align: center;
             box-sizing: border-box;
-            height: 104px
+            height: 104px;
         }
         .header h1 {
             margin: 0 0 10px 0;
@@ -30,13 +32,13 @@
         .header a {
             font-size: 1em;
             color: #9973f7; /* Obsidian lavender */
-            text-decoration: none;
-        }
-        .header a:hover {
             text-decoration: underline;
         }
+        .header a:hover {
+            color: #b8a6fb;
+        }
         .pdf-container {
-            height: calc(100% - 104px); /* subtract header height */
+            flex-grow: 1;
             width: 100%;
             overflow: auto;
         }
@@ -44,6 +46,20 @@
             height: 100%;
             width: 100%;
             border: none;
+        }
+
+        /* for mobile screen */
+        @media screen and (max-width: 600px) and (orientation: portrait) {
+            .header {
+                padding: 40px; /* increase padding for thicker header */
+                height: auto; /* auto-adjust height */
+            }
+            .header h1 {
+                font-size: 4em; /* increase title font size */
+            }
+            .header a {
+                font-size: 2.5em; /* increase hyperlink font size */
+            }
         }
     </style>
 </head>
@@ -54,19 +70,8 @@
         <a href="crimes-by-israel-30-dec-2023.pdf" download="crimes-by-israel-30-dec-2023.pdf">Download</a>
     </div>
     <div class="pdf-container">
-        <iframe src="crimes-by-israel-30-dec-2023.pdf" id="pdfIframe"></iframe>
+        <iframe src="crimes-by-israel-30-dec-2023.pdf"></iframe>
     </div>
-    <script>
-        function adjustIframeHeight() {
-            var headerHeight = document.querySelector('.header').offsetHeight;
-            var viewportHeight = window.innerHeight;
-            var iframeHeight = viewportHeight - headerHeight;
-            document.getElementById('pdfIframe').style.height = iframeHeight + 'px';
-        }
-
-        window.onload = adjustIframeHeight;
-        window.onresize = adjustIframeHeight;
-    </script>
 </body>
 
 </html>
