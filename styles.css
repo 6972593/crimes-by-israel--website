@@ -1,0 +1,63 @@
+html, body {
+    height: 100%; /* ensure the html and body take full viewport height */
+    margin: 0;
+    padding: 0;
+    background-color: #323639; /* dark gray */
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #181a1b; /* very dark gray (near-black) */
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 104px;
+}
+
+.header h1 {
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 32px;
+}
+
+.header a {
+    font-size: 16px;
+}
+
+.header a:hover {
+    color: #b8a6fb;
+}
+
+a {
+    color: #9973f7; /* Obsidian lavender */
+    text-decoration: underline;
+}
+
+.pdf-container {
+    flex-grow: 1;
+    width: 100%;
+    overflow: auto;
+}
+
+.images-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding: 14px 0; /* top and bottom padding */
+}
+
+#contentContainer iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+#contentContainer img {
+    max-width: 90%;
+    margin: 8px 0; /* top and bottom margin */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* horizontal, vertical, blur, color */
+}

@@ -1,62 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crimes by Israel</title>
     <link rel="icon" type="image/png" href="c-gavel-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%; /* ensure the html and body take full viewport height */
-            margin: 0;
-            padding: 0;
-            background-color: #323639; /* dark gray */
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            background-color: #181a1b; /* very dark gray (near-black) */
-            padding: 20px;
-            text-align: center;
-            box-sizing: border-box;
-            height: 104px;
-        }
-        .header h1 {
-            color: white;
-            margin: 0 0 10px 0;
-            font-size: 32px;
-        }
-        .header a {
-            font-size: 16px;
-            color: #9973f7; /* Obsidian lavender */
-            text-decoration: underline;
-        }
-        .header a:hover {
-            color: #b8a6fb;
-        }
-        .pdf-container {
-            flex-grow: 1;
-            width: 100%;
-            overflow: auto;
-        }
-        iframe {
-            height: 100%;
-            width: 100%;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="manage_content.js" defer></script>
 </head>
 
 <body>
     <div class="header">
         <h1>Crimes by Israel</h1>
-        <a href="crimes-by-israel-30-dec-2023.pdf" download="crimes-by-israel-30-dec-2023.pdf">Download</a>
+        <a href="crimes-by-israel-30-dec-2023.pdf" download="crimes-by-israel-30-dec-2023.pdf">Download PDF</a>
     </div>
-    <div class="pdf-container">
+    <div id="contentContainer">
         <iframe src="crimes-by-israel-30-dec-2023.pdf"></iframe>
     </div>
 </body>
