@@ -6,21 +6,30 @@ const IMAGES_CONTAINER_CLASS = 'images-container';
 const PAGES_DIR = 'pages';
 const PAGE_COUNT_FILE = 'page-count.txt';
 const PAGE_FILE_BASE_NAME = 'page_'
-var prevWidth = window.innerWidth;
+
+var prevWidth = screen.width;
+var prevHeight = screen.height;
+var prevIsLandscape = isLandscape();
+
+function isLandscape() {
+    return window.matchMedia("(orientation: landscape)").matches;
+}
 
 function isMobileDevice() {
-    return window.innerWidth <= WIDTH_THRESHOLD;
+    return (screen.width <= WIDTH_THRESHOLD) || (isLandscape() && screen.height <= WIDTH_THRESHOLD);
 }
 
 function prevIsMobileDevice() {
-    return prevWidth <= WIDTH_THRESHOLD;
+    return (prevWidth <= WIDTH_THRESHOLD) || (prevIsLandscape && prevHeight <= WIDTH_THRESHOLD);
 }
 
-function widthThresholdCrossed() {
+function mobileThresholdCrossed() {
     if (isMobileDevice() == prevIsMobileDevice()) {
         return false;
     } else {
-        prevWidth = window.innerWidth;
+        prevWidth = screen.width;
+        prevHeight = screen.height;
+        prevIsLandscape = isLandscape();
         return true;
     }
 }
@@ -54,4 +63,4 @@ function setup() {
 }
 
 window.onload = setup;
-window.onresize = () => { if (widthThresholdCrossed()) {setup();} };
+window.onresize = () => { if (mobileThresholdCrossed()) {setup();} };
