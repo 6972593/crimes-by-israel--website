@@ -1,37 +1,14 @@
 const PDF_HTML = '<iframe src="crimes-by-israel-30-dec-2023.pdf"></iframe>'
-const WIDTH_THRESHOLD = 600;
 const CONTENT_CONTAINER_ID = 'contentContainer';
 const PDF_CONTAINER_CLASS = 'pdf-container';
 const IMAGES_CONTAINER_CLASS = 'images-container';
 const PAGES_DIR = 'pages';
 const PAGE_COUNT_FILE = 'page-count.txt';
 const PAGE_FILE_BASE_NAME = 'page_'
-
-var prevWidth = screen.width;
-var prevHeight = screen.height;
-var prevIsLandscape = isLandscape();
-
-function isLandscape() {
-    return window.matchMedia("(orientation: landscape)").matches;
-}
+const MOBILE_WIDTH_THRESHOLD = 600;
 
 function isMobileDevice() {
-    return (screen.width <= WIDTH_THRESHOLD) || (isLandscape() && screen.height <= WIDTH_THRESHOLD);
-}
-
-function prevIsMobileDevice() {
-    return (prevWidth <= WIDTH_THRESHOLD) || (prevIsLandscape && prevHeight <= WIDTH_THRESHOLD);
-}
-
-function mobileThresholdCrossed() {
-    if (isMobileDevice() == prevIsMobileDevice()) {
-        return false;
-    } else {
-        prevWidth = screen.width;
-        prevHeight = screen.height;
-        prevIsLandscape = isLandscape();
-        return true;
-    }
+    return (screen.width <= MOBILE_WIDTH_THRESHOLD) || (screen.height <= MOBILE_WIDTH_THRESHOLD);
 }
 
 function loadImages(pageCount) {
@@ -63,4 +40,3 @@ function setup() {
 }
 
 window.onload = setup;
-window.onresize = () => { if (mobileThresholdCrossed()) {setup();} };
