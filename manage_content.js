@@ -18,6 +18,7 @@ function loadImages(pageCount) {
     for (let i=1; i<=pageCount; i++) {
         const img = document.createElement('img');
         img.src = `${PAGES_DIR}/${PAGE_FILE_BASE_NAME}${i}.png`;
+        img.alt = `Page ${i}`;
         container.appendChild(img);
     }
 }
