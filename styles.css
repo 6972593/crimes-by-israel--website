@@ -15,25 +15,52 @@ html, body {
     text-align: center;
     box-sizing: border-box;
     height: 104px;
+    position: relative; /* needed for absolute positioning of children */
+}
+
+.header-content {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 .header h1 {
     color: white;
-    margin: 0 0 10px 0;
+    margin: 0 auto 10px; /* auto margins for horizontal centering, and margin for spacing */
     font-size: 32px;
 }
 
 .header a {
-    font-size: 16px;
+    color: #9973f7; /* Obsidian lavender */
+    text-decoration: underline;
+    margin: 0 auto; /* center the link */
+    display: inline; /* inline to fit the size of the text */
 }
 
 .header a:hover {
-    color: #b8a6fb;
+    color: #b8a6fb; /* lighter Obsidian lavender */
 }
 
-a {
-    color: #9973f7; /* Obsidian lavender */
-    text-decoration: underline;
+.socials {
+    position: absolute;
+    right: 20px; /* align to the right, considering the padding of the header */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 16px;
+}
+
+.socials p, .socials a {
+    margin: 3px;
+    color: gray;
+}
+
+.socials i {
+    margin-right: 5px;
 }
 
 .pdf-container {
@@ -60,4 +87,50 @@ a {
     max-width: 90%;
     margin: 8px 0; /* top and bottom margin */
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* horizontal, vertical, blur, color */
+}
+
+
+/* Mobile (or slim) view */
+@media (max-width: 600px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* center-align the children horizontally */
+        height: auto; /* adjust the height to accommodate content */
+        position: static; /* default positioning */
+        padding: 15px;
+    }
+
+    .header-content, .socials {
+        all: unset; /* reset styles */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* center-align items horizontally */
+        width: 100%;
+        text-align: center;
+        position: static; /* default positioning */
+    }
+
+    .header-content h1 {
+        font-size: 24px;
+        margin-bottom: 2px;
+    }
+
+    .header-content a, .socials a {
+        display: block; /* each link on its own line */
+        text-align: center;
+    }
+
+    .header-content a {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .socials a {
+        font-size: 12px;
+    }
+
+    .socials p {
+        display: none; /* hide the email link */
+    }
 }
