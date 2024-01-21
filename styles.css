@@ -33,7 +33,6 @@ html, body {
 }
 
 .header a {
-    color: #9973f7; /* Obsidian lavender */
     text-decoration: underline;
     margin: 0 auto; /* center the link */
     display: inline; /* inline to fit the size of the text */
@@ -41,6 +40,10 @@ html, body {
 
 .header a:hover {
     color: #b8a6fb; /* lighter Obsidian lavender */
+}
+
+.header-content a {
+    color: #9973f7; /* Obsidian lavender */
 }
 
 .socials {
@@ -113,7 +116,7 @@ html, body {
 
     .header-content h1 {
         font-size: 24px;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
     }
 
     .header-content a, .socials a {
@@ -127,7 +130,7 @@ html, body {
     }
 
     .socials a {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .socials p {
