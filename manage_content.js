@@ -1,4 +1,4 @@
-const PDF_HTML = '<iframe src="crimes-by-israel-20-jan-2024.pdf"></iframe>'
+const PDF_HTML = '<iframe src="crimes-by-israel-19-feb-2024.pdf"></iframe>'
 const CONTENT_CONTAINER_ID = 'contentContainer';
 const PDF_CONTAINER_CLASS = 'pdf-container';
 const IMAGES_CONTAINER_CLASS = 'images-container';
